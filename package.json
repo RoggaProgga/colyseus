@@ -1,9 +1,12 @@
 {
-  "name": "colyseus",
-  "version": "0.12.4",
+  "name": "@roggaprogga/colyseus",
+  "version": "0.12.3",
   "description": "Multiplayer Game Server for Node.js.",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {
     "prepublish": "rm -rf lib && tsc -d",
     "watch": "tsc -d -w",
@@ -31,7 +34,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/colyseus/colyseus.git"
+    "url": "git://github.com/roggaprogga/colyseus.git"
   },
   "homepage": "https://colyseus.io/",
   "license": "MIT",
