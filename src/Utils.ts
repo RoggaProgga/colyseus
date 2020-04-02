@@ -1,12 +1,24 @@
-import nanoid from 'nanoid';
-
 import { debugAndPrintError } from './Debug';
+import { adjectives, animals } from './adjectivesAndAnimals';
 
 // remote room call timeouts
 export const REMOTE_ROOM_SHORT_TIMEOUT = Number(process.env.COLYSEUS_PRESENCE_SHORT_TIMEOUT || 2000);
 
 export function generateId() {
-  return nanoid(9);
+  return createRandomName();
+}
+
+function createRandomName() {
+  let adjective = adjectives[getRandomIntInclusive(0, adjectives.length)];
+  let animal = animals[getRandomIntInclusive(0, adjectives.length)];
+  let number = getRandomIntInclusive(0, 999);
+  return (adjective + '-' + animal + '-' + number);
+}
+
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 //
