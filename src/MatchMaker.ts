@@ -1,7 +1,7 @@
 import { Client, Protocol } from './Protocol';
 
 import { requestFromIPC, subscribeIPC } from './IPC';
-import { generateId, merge, REMOTE_ROOM_SHORT_TIMEOUT, retry } from './Utils';
+import { generateId, generateRoomId, merge, REMOTE_ROOM_SHORT_TIMEOUT, retry } from './Utils';
 
 import { RegisteredHandler } from './matchmaker/RegisteredHandler';
 import { Room, RoomInternalState } from './Room';
@@ -259,7 +259,7 @@ async function handleCreateRoom(roomName: string, clientOptions: ClientOptions):
   const room = new registeredHandler.klass();
 
   // set room public attributes
-  room.roomId = generateId();
+  room.roomId = generateRoomId();
   room.roomName = roomName;
   room.presence = presence;
 
